@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accesorios Apple</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="#">Inicio</a>
+    <a href="#">Productos</a>
+  </nav>
+</header>
+
+<h2 class="titulo-principal">APPLE ZONE</h2>
+<div class="logo-container">
+  <img src="logo-applezone.jpg" alt="Logo Apple Zone" />
+</div>
+
+<div class="productos">
+  <div class="producto">
+    <h3>AirPods Pro</h3>
+    <div class="precios">
+      <p class="precio-stock">Precio: $22.000</p>
+    </div>
+    <p class="descripcion">AirPods Pro 2da generación.</p>
+    <img src="airpords-pro.jpg" alt="AirPods Pro" />
+    <button class="agregar-carrito" data-producto="AirPods Pro">Agregar al carrito</button>
+  </div>
+
+  <div class="producto">
+    <h3>Batería Inalámbrica MagSafe</h3>
+    <div class="precios">
+      <p class="precio-stock">Precio: $20.200</p>
+    </div>
+    <img src="battery-pack.jpg" alt="Battery pack" />
+    <button class="agregar-carrito" data-producto="Battery Pack">Agregar al carrito</button>
+  </div>
+
+  <div class="producto">
+    <h3>Cargador Completo</h3>
+    <div class="precios">
+      <p class="precio-stock">Precio: $13.000</p>
+    </div>
+    <p class="descripcion">Incluye adaptador y cable originales.</p>
+    <img src="cargador-completo.jpg" alt="Cargador Completo" />
+    <button class="agregar-carrito" data-producto="Cargador Completo">Agregar al carrito</button>
+  </div>
+
+  <div class="producto">
+    <h3>Apple Watch</h3>
+    <div class="precios">
+      <p class="precio-stock">Precio: $24.000</p>
+    </div>
+    <img src="apple-watch.jpg" alt="Apple Watch" />
+    <button class="agregar-carrito" data-producto="Apple Watch">Agregar al carrito</button>
+  </div>
+
+  <div class="producto">
+    <h3>ECLARE perfume árabe hombre</h3>
+    <div class="precios">
+      <p class="precio-stock">Precio: $22.000</p>
+    </div>
+    <img src="eclare-perfume-hombre.jpg" alt="ECLARE perfume hombre" />
+    <button class="agregar-carrito" data-producto="ECLARE Hombre">Agregar al carrito</button>
+  </div>
+
+  <div class="producto">
+    <h3>YARA perfume árabe mujer</h3>
+    <div class="precios">
+      <p class="precio-stock">Precio: $22.000</p>
+    </div>
+    <img src="yara-perfume-mujer.jpg" alt="YARA perfume mujer" />
+    <button class="agregar-carrito" data-producto="YARA Mujer">Agregar al carrito</button>
+  </div>
+
+  <div class="producto">
+    <h3>Fundas de silicona</h3>
+    <div class="precios">
+      <p class="precio-stock">Precio: $8.000 C/U</p>
+    </div>
+    <img src="fundas-silicona.jpg" alt="Fundas de silicona" />
+    <button class="agregar-carrito" data-producto="Fundas de silicona">Agregar al carrito</button>
+  </div>
+
+  <div class="producto">
+    <h3>Parlantes JBL</h3>
+    <div class="precios">
+      <p class="precio-stock">Precio: $24.000</p>
+    </div>
+    <img src="parlantes-jbl.jpg" alt="Parlantes JBL" />
+    <button class="agregar-carrito" data-producto="Parlantes JBL">Agregar al carrito</button>
+  </div>
+
+  <div class="producto">
+    <h3>Masajeador</h3>
+    <div class="precios">
+      <p class="precio-stock">Precio: $15.000</p>
+    </div>
+    <img src="masajeador.jpg" alt="Masajeador" />
+    <button class="agregar-carrito" data-producto="Masajeador">Agregar al carrito</button>
+  </div>
+
+  <div class="producto">
+    <h3>TV Box</h3>
+    <div class="precios">
+      <p class="precio-stock">Precio: $32.000</p>
+    </div>
+    <img src="tv-box.jpg" alt="TV Box" />
+    <button class="agregar-carrito" data-producto="TV Box">Agregar al carrito</button>
+  </div>
+
+  <div class="producto">
+    <h3>Victoria's Secret</h3>
+    <div class="precios">
+      <p class="precio-stock">Precio: $32.000</p>
+    </div>
+    <img src="victoria-secret.jpg" alt="Victoria's Secret" />
+    <button class="agregar-carrito" data-producto="Victoria's Secret">Agregar al carrito</button>
+  </div>
+</div>
+
+<div class="whatsapp-container">
+  <div class="consulta-label">Consultas</div>
+  <a href="https://wa.me/543537323431" class="whatsapp" target="_blank" aria-label="WhatsApp">
+    <img src="whatsapp-icon.png" alt="WhatsApp" />
+  </a>
+</div>
+
+<button onclick="enviarPedido()" class="btn-carrito">🛒 Enviar pedido</button>
+
+<script>
+  const carrito = {};
+
+  document.querySelectorAll('.agregar-carrito').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const producto = btn.getAttribute('data-producto');
+      carrito[producto] = (carrito[producto] || 0) + 1;
+      alert(`Agregado: ${producto}`);
+    });
+  });
+
+  function enviarPedido() {
+    if (Object.keys(carrito).length === 0) {
+      alert("El carrito está vacío.");
+      return;
+    }
+
+    let mensaje = "Hola, quiero pedir:%0A";
+    for (let producto in carrito) {
+      mensaje += `- ${producto} (x${carrito[producto]})%0A`;
+    }
+
+    const numero = "543537323431";
+    const url = `https://wa.me/${numero}?text=${mensaje}`;
+    window.open(url, "_blank");
+  }
+</script>
+
+</body>
+</html>
