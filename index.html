@@ -121,7 +121,45 @@
     <img src="victoria-secret.jpg" alt="Victoria's Secret" />
     <button class="agregar-carrito" data-producto="Victoria's Secret">Agregar al carrito</button>
   </div>
+
+  <div class="productos">
+  <div class="producto">
+    <h3>iphone 13</h3>
+    <div class="precio">
+      <p class="precio">Precio: $480USD</p>
+    </div>
+    <p class="descripcion">iphone 13 NUEVO 100 de condicion, 3 m de uso, garantia official (1 año), 128GB</p>
+     <div class="slider">
+    <img src="iphone 13.jpg" alt="iphone 13" class="slide active">
+    <img src="iphone 13 2.jpg" alt="iphone 13" class="slide">
+    <img src="iphone 13 3.jpg" alt="iphone 13" class="slide">
+    <img src="iphone 13 4.jpg" alt="iphone 13" class="slide">
+    <img src="iphone 13 5.jpg" alt="iphone 13" class="slide">
+     <div class="slider-controles">
+      <button class="prev">←</button>
+      <button class="next">→</button>
+      </div>
+  </div>
+    <button class="agregar-carrito" data-producto="airpords pro">Agregar al carrito</button>
+  </div>
 </div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+
+  document.querySelector('.next').addEventListener('click', () => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  });
+
+  document.querySelector('.prev').addEventListener('click', () => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+  });
+</script>
 
 <div class="whatsapp-container">
   <div class="consulta-label">Consultas</div>
